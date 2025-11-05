@@ -127,25 +127,49 @@ const StorageSection: React.FC = () => {
                   rotateY: 10,
                   scale: 1.05
                 }}
-              >
-                {/* Crystal Disk */}
-                <div 
-                  className="absolute inset-0 rounded-full border-4 border-white/20 shadow-2xl"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%)',
-                    backdropFilter: 'blur(10px)',
-                    boxShadow: '0 25px 50px rgba(255,255,255,0.1), inset 0 0 50px rgba(255,255,255,0.05)'
-                  }}
                 >
+                  {/* Crystal Disk */}
+                  <div 
+                    className="absolute inset-0 rounded-full border-4 border-white/20 shadow-2xl"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%)',
+                      backdropFilter: 'blur(10px)',
+                      boxShadow: '0 25px 50px rgba(255,255,255,0.1), inset 0 0 50px rgba(255,255,255,0.05)'
+                    }}
+                  >
+                    {/* Internal Holographic Text */}
+                    <div className="absolute inset-0 rounded-full flex items-center justify-center">
+                      <div className="text-center">
+                        {/* LiteFlix Title */}
+                        <motion.div
+                          animate={{
+                            opacity: [0.7, 1, 0.7],
+                            scale: [1, 1.05, 1]
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: 9999,
+                            ease: 'easeInOut'
+                          }}
+                          className="text-2xl font-bold mb-2"
+                          style={{
+                            background: 'linear-gradient(45deg, #00ff88, #00ccff, #cc00ff, #ff6600)',
+                            backgroundClip: 'text',
+                            WebkitBackgroundClip: 'text',
+                            color: 'transparent',
+                            filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))'
+                          }}
+                        >
+                          LiteFlix
+                        </motion.div>
+                      </div>
+                    </div>
 
-
-                  {/* Central Indexing Marks */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-3 h-3 rounded-full bg-white/30 border border-white/50"></div>
-                    <div className="w-2 h-2 rounded-full bg-blue-400/60 mt-1 ml-0.5"></div>
-                  </div>
-
-                  {/* Edge Reflection */}
+                    {/* Central Indexing Marks */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                      <div className="w-3 h-3 rounded-full bg-white/30 border border-white/50"></div>
+                      <div className="w-2 h-2 rounded-full bg-blue-400/60 mt-1 ml-0.5"></div>
+                    </div>                  {/* Edge Reflection */}
                   <div 
                     className="absolute inset-0 rounded-full"
                     style={{
