@@ -22,7 +22,6 @@ const Navigation: React.FC = () => {
       style={{
         background: 'rgba(255, 255, 255, 0.15)',
         backdropFilter: 'blur(60px)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.15)',
         boxShadow: '0 2px 24px rgba(0, 0, 0, 0.3)',
       }}
     >

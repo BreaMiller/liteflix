@@ -48,7 +48,7 @@ const SpecsSection: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group relative"
               >
-                <div className="p-6 rounded-xl backdrop-blur-[60px] border border-glass-border bg-glass-subtle h-full relative overflow-hidden transition-all duration-400 group-hover:bg-glass-standard group-hover:scale-105">
+                <div className="p-6 rounded-xl backdrop-blur-[120px] bg-glass-subtle h-full relative overflow-hidden transition-all duration-400 group-hover:bg-glass-standard group-hover:scale-105">
                   {/* Icon */}
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
@@ -91,7 +91,7 @@ const SpecsSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-16 text-center"
         >
-          <div className="p-8 rounded-2xl backdrop-blur-[60px] border border-glass-border bg-glass-standard max-w-4xl mx-auto">
+          <div className="p-8 rounded-2xl backdrop-blur-[120px] bg-glass-standard max-w-4xl mx-auto">
             <h3 className="text-2xl font-display font-bold text-text-primary mb-4">
               Dimensions & Weight
             </h3>

@@ -69,7 +69,7 @@ const MaterialsSection: React.FC = () => {
                 }}
               >
                 <div
-                  className="p-10 rounded-2xl backdrop-blur-[60px] border border-glass-border transition-all duration-400 h-full relative overflow-hidden"
+                  className="p-10 rounded-2xl backdrop-blur-[120px] transition-all duration-400 h-full relative overflow-hidden"
                   style={{
                     background: 'rgba(255, 255, 255, 0.1)',
                     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',

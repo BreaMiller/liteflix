@@ -18,7 +18,7 @@ const CTASection: React.FC = () => {
           {/* Background Glass Panel */}
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="p-12 rounded-3xl backdrop-blur-[60px] border border-glass-border bg-glass-emphasized relative overflow-hidden"
+            className="p-12 rounded-3xl backdrop-blur-[120px] bg-glass-emphasized relative overflow-hidden"
             style={{
               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
             }}
@@ -130,7 +130,7 @@ const CTASection: React.FC = () => {
                     backgroundColor: 'rgba(255, 255, 255, 0.18)'
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-glass-standard text-text-primary font-semibold text-lg rounded-xl border border-glass-border backdrop-blur-[60px] transition-all duration-200"
+                  className="px-8 py-4 bg-glass-standard text-text-primary font-semibold text-lg rounded-xl backdrop-blur-[120px] transition-all duration-200"
                 >
                   View Demo
                 </motion.button>

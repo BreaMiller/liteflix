@@ -139,7 +139,7 @@ const Footer: React.FC = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-glass-subtle border border-glass-border rounded-l-xl text-text-primary placeholder-text-tertiary backdrop-blur-[60px] focus:outline-none focus:border-accent-blue"
+                className="flex-1 px-4 py-3 bg-glass-subtle rounded-l-xl text-text-primary placeholder-text-tertiary backdrop-blur-[120px] focus:outline-none"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -184,7 +184,7 @@ const Footer: React.FC = () => {
                     })
                   }}
                   whileTap={{ scale: 0.9 }}
-                  className={`w-10 h-10 bg-glass-subtle border border-glass-border rounded-lg flex items-center justify-center transition-all duration-200 backdrop-blur-[60px] ${
+                  className={`w-10 h-10 bg-glass-subtle rounded-lg flex items-center justify-center transition-all duration-200 backdrop-blur-[120px] ${
                     social.hoverEffect ? '' : 'hover:text-accent-blue'
                   }`}
                   aria-label={social.label}
