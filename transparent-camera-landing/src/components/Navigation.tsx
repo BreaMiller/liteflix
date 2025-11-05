@@ -22,6 +22,7 @@ const Navigation: React.FC = () => {
       style={{
         background: 'rgba(255, 255, 255, 0.15)',
         backdropFilter: 'blur(60px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.15)',
         boxShadow: '0 2px 24px rgba(0, 0, 0, 0.3)',
       }}
     >
@@ -83,7 +84,7 @@ const Navigation: React.FC = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden absolute top-full left-0 right-0 bg-glass-emphasized backdrop-blur-strong border-b border-glass-border"
+          className="md:hidden absolute top-full left-0 right-0 bg-glass-emphasized backdrop-blur-[120px] border-b border-glass-border"
         >
           <div className="px-6 py-6 space-y-4">
             {navItems.map((item) => (

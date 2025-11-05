@@ -157,7 +157,7 @@ const HeroSection: React.FC = () => {
                   backgroundColor: 'rgba(255, 255, 255, 0.18)'
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-glass-standard text-text-primary font-semibold text-lg rounded-xl backdrop-blur-[120px] transition-all duration-200"
+                className="px-8 py-4 bg-glass-standard text-text-primary font-semibold text-lg rounded-xl border border-glass-border backdrop-blur-[120px] transition-all duration-200"
               >
                 Learn More
               </motion.button>

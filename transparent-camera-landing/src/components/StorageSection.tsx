@@ -26,7 +26,7 @@ const StorageSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5"
           >
-            <div className="p-8 rounded-2xl backdrop-blur-[120px] bg-glass-standard">
+            <div className="p-8 rounded-2xl backdrop-blur-[120px] border border-glass-border bg-glass-standard">
               <h2 className="text-3xl lg:text-4xl font-display font-bold text-text-primary mb-6">
                 5D Crystal Storage
                 <span className="block text-accent-blue text-lg font-medium mt-2">
@@ -240,7 +240,7 @@ const StorageSection: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveLayer(null)}
-                className="px-6 py-3 bg-glass-emphasized text-text-primary rounded-xl backdrop-blur-[120px]"
+                className="px-6 py-3 bg-glass-emphasized text-text-primary rounded-xl border border-glass-border backdrop-blur-[120px]"
               >
                 Full Breakdown
               </motion.button>

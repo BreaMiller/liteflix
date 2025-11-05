@@ -33,7 +33,7 @@ const OpticsSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 relative"
           >
-            <div className="p-10 rounded-2xl backdrop-blur-[120px] bg-glass-standard relative overflow-hidden">
+            <div className="p-10 rounded-2xl backdrop-blur-[120px] border border-glass-border bg-glass-standard relative overflow-hidden">
               {/* Iridescent Border */}
               <div 
                 className="absolute inset-0 rounded-2xl opacity-30"
