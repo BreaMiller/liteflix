@@ -75,7 +75,7 @@ const ComponentsSection: React.FC = () => {
                 className="relative w-[63.36rem] h-[47.52rem]"
               >
                 <img
-                  src="/liteflix/images/internal-components-prism.jpg"
+                  src="/liteflix/images/transparent-camera-internal-components.png"
                   alt="Interior view of transparent camera showing internal components"
                   className="w-full h-full object-contain drop-shadow-2xl"
                   style={{
