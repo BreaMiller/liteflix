@@ -31,12 +31,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'pnpm'
-          cache-dependency-path: 'transparent-camera-landing/pnpm-lock.yaml'
 
-      - name: Install dependencies
-        working-directory: transparent-camera-landing
-        run: pnpm install --frozen-lockfile
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: Build project
         working-directory: transparent-camera-landing
