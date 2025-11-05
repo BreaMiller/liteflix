@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Linkedin } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, Youtube, Music } from 'lucide-react'
 import PrismIcon from './PrismIcon'
 import { getImagePath } from '@/lib/utils'
 
@@ -30,23 +30,25 @@ const Footer: React.FC = () => {
 
   const socialLinks = [
     { 
-      image: '/images/youtube-outline-logo.png', 
+      icon: Youtube, 
       href: '#', 
       label: 'YouTube',
-      alt: 'YouTube Logo',
-      hoverEffect: 'red'
+      brandColor: '#FF0000',
+      hoverEffect: 'youtube'
     },
     { 
-      image: '/images/tiktok-animated-logo.png', 
+      icon: Music, 
       href: '#', 
       label: 'TikTok',
-      alt: 'TikTok Logo',
-      hoverEffect: 'animate'
+      brandColor: '#000000',
+      hoverEffect: 'tiktok'
     },
     { 
       icon: Linkedin, 
       href: '#', 
-      label: 'LinkedIn'
+      label: 'LinkedIn',
+      brandColor: '#0A66C2',
+      hoverEffect: 'linkedin'
     },
   ]
 
@@ -178,31 +180,14 @@ const Footer: React.FC = () => {
                   whileHover={{ 
                     scale: 1.1, 
                     rotate: 5,
-                    ...(social.hoverEffect === 'red' && { filter: 'brightness(0) saturate(100%) hue-rotate(0deg)' }),
-                    ...(social.hoverEffect === 'animate' && { 
-                      filter: 'drop-shadow(0 0 10px rgba(91,159,255,0.6)) brightness(1.2)',
-                    })
+                    color: social.brandColor
                   }}
                   whileTap={{ scale: 0.9 }}
-                  className={`w-10 h-10 bg-glass-subtle border border-glass-border rounded-lg flex items-center justify-center transition-all duration-200 backdrop-blur-[120px] ${
-                    social.hoverEffect ? '' : 'hover:text-accent-blue'
-                  }`}
+                  className={`w-10 h-10 bg-glass-subtle border border-glass-border rounded-lg flex items-center justify-center transition-all duration-200 backdrop-blur-[120px] hover:text-accent-blue`}
                   aria-label={social.label}
-                  style={{
-                    color: social.hoverEffect === 'red' && 'rgb(239, 68, 68)' // red color
-                  }}
+                  style={{ color: 'currentColor' }}
                 >
-                  {social.image ? (
-                    <img
-                      src={getImagePath(social.image)}
-                      alt={social.alt}
-                      className={`w-6 h-6 object-contain transition-all duration-300 ${
-                        social.hoverEffect === 'red' ? '' : 'filter invert'
-                      }`}
-                    />
-                  ) : (
-                    <Icon className="w-5 h-5" />
-                  )}
+                  <Icon className="w-5 h-5" />
                 </motion.a>
               )
             })}
