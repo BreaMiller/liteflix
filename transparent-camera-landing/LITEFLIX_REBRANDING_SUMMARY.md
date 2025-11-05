@@ -77,7 +77,7 @@ The intense 60px blur effects create a premium glassmorphism experience:
 **After:** LiteFlix with prism icon and refined messaging
 
 **Key Messaging Updates:**
-- Hero: "Moments that Outlast Memories"
+- Hero: "Moments That Outlast Memories"
 - Ship Date: "this eon" (innovative timeline)
 - Contact: +1 (777) 123-4567
 - Copyright: 2030

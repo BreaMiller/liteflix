@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Linkedin } from 'lucide-react'
 import PrismIcon from './PrismIcon'
+import { getImagePath } from '@/lib/utils'
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear()
@@ -193,7 +194,7 @@ const Footer: React.FC = () => {
                 >
                   {social.image ? (
                     <img
-                      src={social.image}
+                      src={getImagePath(social.image)}
                       alt={social.alt}
                       className={`w-6 h-6 object-contain transition-all duration-300 ${
                         social.hoverEffect === 'red' ? '' : 'filter invert'

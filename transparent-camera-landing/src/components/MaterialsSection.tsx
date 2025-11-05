@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Shield, Zap, Gem } from 'lucide-react'
+import { getImagePath } from '@/lib/utils'
 
 const MaterialsSection: React.FC = () => {
   const ref = useRef(null)
@@ -107,7 +108,7 @@ const MaterialsSection: React.FC = () => {
                   {/* Material Image */}
                   <div className="relative h-32 rounded-lg overflow-hidden">
                     <img
-                      src={material.image}
+                      src={getImagePath(material.image)}
                       alt={material.title}
                       className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-400"
                     />

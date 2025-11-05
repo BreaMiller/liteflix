@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Triangle, Lightbulb, Sparkles } from 'lucide-react'
+import { getImagePath } from '@/lib/utils'
 
 const OpticsSection: React.FC = () => {
   const ref = useRef(null)
@@ -12,7 +13,7 @@ const OpticsSection: React.FC = () => {
       content: (
         <div className="relative w-full h-full flex items-center justify-center">
           <img
-            src="/images/optic-lens-prismatic.png"
+            src={getImagePath('/images/optic-lens-prismatic.png')}
             alt="Prismatic Optic Lens with Exceptional Transparency"
             className="w-full h-full object-contain rounded-2xl"
           />

@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { getImagePath } from '@/lib/utils'
 
 const TransparentCamera3D: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const TransparentCamera3D: React.FC = () => {
         }}
       >
         <img 
-          src="/images/transparent-camera.png"
+          src={getImagePath('/images/transparent-camera.png')}
           alt="Transparent Camera with Iridescent Effects"
           className="w-full h-full object-contain drop-shadow-2xl"
           style={{
