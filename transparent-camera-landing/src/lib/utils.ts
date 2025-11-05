@@ -6,9 +6,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getImagePath(imagePath: string): string {
-  // Remove leading slash if present
-  const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
-  // Get base from vite config
-  const base = import.meta.env.BASE_URL || '/';
-  return `${base}${cleanPath}`;
+  // Simply prepend liteflix to paths that start with /
+  if (imagePath.startsWith('/')) {
+    return `/liteflix${imagePath}`;
+  }
+  return imagePath;
 }
