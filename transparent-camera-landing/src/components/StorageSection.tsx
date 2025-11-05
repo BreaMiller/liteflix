@@ -137,35 +137,7 @@ const StorageSection: React.FC = () => {
                     boxShadow: '0 25px 50px rgba(255,255,255,0.1), inset 0 0 50px rgba(255,255,255,0.05)'
                   }}
                 >
-                  {/* Internal Holographic Text */}
-                  <div className="absolute inset-0 rounded-full flex items-center justify-center">
-                    <div className="text-center transform rotate-12">
-                      {/* LiteFlix Title */}
-                      <motion.div
-                        animate={{
-                          opacity: [0.7, 1, 0.7],
-                          scale: [1, 1.05, 1]
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: 9999,
-                          ease: 'easeInOut'
-                        }}
-                        className="text-2xl font-bold mb-2"
-                        style={{
-                          background: 'linear-gradient(45deg, #00ff88, #00ccff, #cc00ff, #ff6600)',
-                          backgroundClip: 'text',
-                          WebkitBackgroundClip: 'text',
-                          color: 'transparent',
-                          filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))'
-                        }}
-                      >
-                        LiteFlix
-                      </motion.div>
-                      
 
-                    </div>
-                  </div>
 
                   {/* Central Indexing Marks */}
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -223,13 +195,7 @@ const StorageSection: React.FC = () => {
                     transform: `rotate(${index * 72}deg)`,
                   }}
                 >
-                  <div className="absolute inset-4 rounded-full border border-white/5 flex items-center justify-center">
-                    <div className="text-center transform -rotate-12">
-                      <div className="text-white/40 text-xs font-medium">
-                        {layer.name}
-                      </div>
-                    </div>
-                  </div>
+                  <div className="absolute inset-4 rounded-full border border-white/5"></div>
                 </motion.div>
               ))}
             </div>
