@@ -32,6 +32,11 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
+          cache-dependency-path: 'transparent-camera-landing/pnpm-lock.yaml'
+
+      - name: Install dependencies
+        working-directory: transparent-camera-landing
+        run: pnpm install --frozen-lockfile
 
       - name: Build project
         working-directory: transparent-camera-landing
