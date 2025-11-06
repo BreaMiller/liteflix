@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import PrismIcon from './PrismIcon'
-import IridescentDisc from './IridescentDisc'
 import { getImagePath } from '@/lib/utils'
 
 interface Product {
@@ -11,6 +10,24 @@ interface Product {
   image: string
   description: string
 }
+
+const CrystalDiscIcon: React.FC<{ className?: string }> = ({ className = '' }) => (
+  <svg viewBox="0 0 200 200" className={className} xmlns="http://www.w3.org/2000/svg">
+    {/* Outer ring */}
+    <circle cx="100" cy="100" r="95" fill="none" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="2" />
+    {/* Mid ring */}
+    <circle cx="100" cy="100" r="75" fill="none" stroke="rgba(255, 255, 255, 0.3)" strokeWidth="1.5" />
+    {/* Inner ring */}
+    <circle cx="100" cy="100" r="55" fill="none" stroke="rgba(255, 255, 255, 0.2)" strokeWidth="1" />
+    {/* Center circle */}
+    <circle cx="100" cy="100" r="35" fill="rgba(255, 255, 255, 0.1)" />
+    {/* Subtle gradient lines to suggest data layers */}
+    <line x1="100" y1="20" x2="100" y2="50" stroke="rgba(200, 200, 255, 0.15)" strokeWidth="1" />
+    <line x1="100" y1="150" x2="100" y2="180" stroke="rgba(200, 200, 255, 0.15)" strokeWidth="1" />
+    <line x1="20" y1="100" x2="50" y2="100" stroke="rgba(200, 200, 255, 0.15)" strokeWidth="1" />
+    <line x1="150" y1="100" x2="180" y2="100" stroke="rgba(200, 200, 255, 0.15)" strokeWidth="1" />
+  </svg>
+)
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -117,30 +134,31 @@ const Navigation: React.FC = () => {
                         whileHover={{ scale: 1.05, x: 8 }}
                         className="group rounded-xl overflow-hidden transition-all duration-300 flex flex-row items-center gap-4"
                       >
-                        {product.title === '5D Storage' ? (
-                          <div className="relative w-24 h-24 flex-shrink-0 flex items-center justify-center rounded-lg bg-gradient-to-br from-white/20 to-white/5 group-hover:shadow-lg"
-                            style={{
-                              boxShadow: '0 0 30px rgba(139, 124, 246, 0.2)',
-                              transition: 'box-shadow 0.3s ease',
-                            }}
-                          >
-                            <IridescentDisc size={80} className="group-hover:scale-110 transition-transform duration-300" />
-                          </div>
-                        ) : (
-                          <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5 group-hover:shadow-lg"
-                            style={{
-                              boxShadow: '0 0 30px rgba(139, 124, 246, 0.2)',
-                              transition: 'box-shadow 0.3s ease',
-                            }}
-                          >
-                            <img
-                              src={getImagePath(product.image)}
-                              alt={product.title}
-                              className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-                          </div>
-                        )}
+                        <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5 group-hover:shadow-lg flex items-center justify-center"
+                          style={{
+                            boxShadow: '0 0 30px rgba(139, 124, 246, 0.2)',
+                            transition: 'box-shadow 0.3s ease',
+                          }}
+                        >
+                          {product.title === '5D Storage' ? (
+                            <motion.div
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                              className="w-16 h-16"
+                            >
+                              <CrystalDiscIcon className="w-full h-full" />
+                            </motion.div>
+                          ) : (
+                            <>
+                              <img
+                                src={getImagePath(product.image)}
+                                alt={product.title}
+                                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                            </>
+                          )}
+                        </div>
                         <div className="flex-1 text-left">
                           <h4 className="text-text-primary font-semibold text-sm mb-2 group-hover:text-white transition-colors">
                             {product.title}
