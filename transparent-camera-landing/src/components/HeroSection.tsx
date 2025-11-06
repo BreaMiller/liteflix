@@ -137,30 +137,32 @@ const HeroSection: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 px-6 pb-6"
             >
-              <motion.button
+              <motion.a
+                href="#preorder"
                 whileHover={{ 
                   scale: 1.02,
                   boxShadow: '0 16px 48px rgba(139, 124, 246, 0.7)'
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-accent-primary text-white font-semibold text-lg rounded-xl shadow-button-primary transform perspective-800 translate-z-3 transition-all duration-200"
+                className="px-8 py-4 bg-accent-primary text-white font-semibold text-lg rounded-xl shadow-button-primary transform perspective-800 translate-z-3 transition-all duration-200 text-center"
                 style={{
                   boxShadow: '0 12px 32px rgba(139, 124, 246, 0.5)',
                 }}
               >
                 Pre-Order Now
-              </motion.button>
+              </motion.a>
               
-              <motion.button
+              <motion.a
+                href="#materials"
                 whileHover={{ 
                   scale: 1.02,
                   backgroundColor: 'rgba(255, 255, 255, 0.18)'
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-glass-standard text-text-primary font-semibold text-lg rounded-xl border border-glass-border backdrop-blur-[120px] transition-all duration-200"
+                className="px-8 py-4 bg-glass-standard text-text-primary font-semibold text-lg rounded-xl border border-glass-border backdrop-blur-[120px] transition-all duration-200 text-center"
               >
                 Learn More
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -187,26 +189,6 @@ const HeroSection: React.FC = () => {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: 9999 }}
-          className="w-6 h-10 border-2 border-white border-opacity-30 rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: 9999 }}
-            className="w-1 h-3 bg-white bg-opacity-50 rounded-full mt-2"
-          />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }
