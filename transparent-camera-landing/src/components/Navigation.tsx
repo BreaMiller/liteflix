@@ -154,6 +154,19 @@ const Navigation: React.FC = () => {
               />
             </a>
           ))}
+
+          {/* Pre-Order Button */}
+          <motion.a
+            href="#preorder"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 bg-accent-primary text-white font-semibold rounded-xl shadow-button-primary transform perspective-800 translate-z-3 transition-all duration-200"
+            style={{
+              boxShadow: '0 12px 32px rgba(139, 124, 246, 0.5)',
+            }}
+          >
+            Pre-Order Now
+          </motion.a>
         </div>
 
         {/* Mobile Menu Button */}
