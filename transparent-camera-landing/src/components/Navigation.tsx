@@ -25,7 +25,7 @@ const Navigation: React.FC = () => {
     {
       title: 'Lenses',
       href: '#lenses',
-      image: 'transparent-lens.png',
+      image: 'brea-lens.png',
       description: 'Precision optical elements for crystal clarity'
     },
     {
