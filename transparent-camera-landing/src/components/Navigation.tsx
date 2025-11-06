@@ -118,8 +118,8 @@ const Navigation: React.FC = () => {
                   onMouseLeave={() => setShowProducts(false)}
                   className="absolute right-0 w-[600px] rounded-2xl shadow-2xl z-40"
                   style={{
-                    background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0) 100%)',
-                    backdropFilter: 'blur(60px)',
+                    background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 70%, rgba(255, 255, 255, 0.05) 100%)',
+                    backdropFilter: 'blur(20px)',
                     top: 'calc(100% + 16px)',
                     boxShadow: '0 20px 60px rgba(139, 124, 246, 0.3)',
                   }}
