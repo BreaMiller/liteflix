@@ -100,7 +100,7 @@ const Navigation: React.FC = () => {
                   transition={{ duration: 0.2 }}
                   onMouseEnter={() => setShowProducts(true)}
                   onMouseLeave={() => setShowProducts(false)}
-                  className="absolute right-0 w-96 rounded-2xl shadow-2xl z-40"
+                  className="absolute right-0 w-[600px] rounded-2xl shadow-2xl z-40"
                   style={{
                     background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0) 100%)',
                     backdropFilter: 'blur(60px)',
@@ -108,15 +108,15 @@ const Navigation: React.FC = () => {
                     boxShadow: '0 20px 60px rgba(139, 124, 246, 0.3)',
                   }}
                 >
-                  <div className="grid grid-cols-2 gap-4 p-6">
+                  <div className="grid grid-cols-2 gap-6 p-6">
                     {products.map((product) => (
                       <motion.a
                         key={product.title}
                         href={product.href}
-                        whileHover={{ scale: 1.08, y: -8 }}
-                        className="group rounded-xl overflow-hidden transition-all duration-300 flex flex-col items-center text-center"
+                        whileHover={{ scale: 1.05, x: 8 }}
+                        className="group rounded-xl overflow-hidden transition-all duration-300 flex flex-row items-center gap-4"
                       >
-                        <div className="relative w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg mb-3 bg-gradient-to-br from-white/20 to-white/5 group-hover:shadow-lg"
+                        <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5 group-hover:shadow-lg"
                           style={{
                             boxShadow: '0 0 30px rgba(139, 124, 246, 0.2)',
                             transition: 'box-shadow 0.3s ease',
@@ -129,7 +129,7 @@ const Navigation: React.FC = () => {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                         </div>
-                        <div className="flex-1">
+                        <div className="flex-1 text-left">
                           <h4 className="text-text-primary font-semibold text-sm mb-2 group-hover:text-white transition-colors">
                             {product.title}
                           </h4>
