@@ -19,19 +19,19 @@ const Navigation: React.FC = () => {
     {
       title: 'Camera Bodies',
       href: '#camera-bodies',
-      image: '/liteflix/images/transparent-camera.png',
+      image: '/liteflix/images/transparent-camera-body.png',
       description: 'Revolutionary transparent camera with 5D storage'
     },
     {
       title: 'Lenses',
       href: '#lenses',
-      image: '/liteflix/images/optic-lens-prismatic.png',
+      image: '/liteflix/images/transparent-lens.png',
       description: 'Precision optical elements for crystal clarity'
     },
     {
       title: '5D Storage',
       href: '#5d-storage',
-      image: '/liteflix/images/aerospace_aluminum_oxynitride_alon_crystal_structure.jpg',
+      image: '/liteflix/images/transparent-camera-internal-components.png',
       description: 'Quantum-encoded crystal media storage'
     },
     {
