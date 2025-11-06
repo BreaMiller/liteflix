@@ -74,22 +74,6 @@ const Navigation: React.FC = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-text-primary hover:text-white transition-colors duration-200 relative group"
-            >
-              {item.label}
-              <motion.div
-                className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400"
-                initial={{ width: 0 }}
-                whileHover={{ width: '100%' }}
-                transition={{ duration: 0.2 }}
-              />
-            </a>
-          ))}
-
           {/* Products Dropdown */}
           <div className="relative group">
             <motion.button
@@ -154,6 +138,22 @@ const Navigation: React.FC = () => {
               )}
             </AnimatePresence>
           </div>
+
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="text-text-primary hover:text-white transition-colors duration-200 relative group"
+            >
+              {item.label}
+              <motion.div
+                className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400"
+                initial={{ width: 0 }}
+                whileHover={{ width: '100%' }}
+                transition={{ duration: 0.2 }}
+              />
+            </a>
+          ))}
         </div>
 
         {/* Mobile Menu Button */}
@@ -174,17 +174,6 @@ const Navigation: React.FC = () => {
           className="md:hidden absolute top-full left-0 right-0 bg-glass-emphasized backdrop-blur-[120px] border-b border-glass-border"
         >
           <div className="px-6 py-6 space-y-4">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="block text-text-primary hover:text-white transition-colors text-lg"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
-
             {/* Mobile Products Menu */}
             <div>
               <button
@@ -226,6 +215,16 @@ const Navigation: React.FC = () => {
               </AnimatePresence>
             </div>
 
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="block text-text-primary hover:text-white transition-colors text-lg"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
         </motion.div>
       )}
