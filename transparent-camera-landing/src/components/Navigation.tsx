@@ -45,7 +45,6 @@ const Navigation: React.FC = () => {
   const navItems = [
     { label: 'Technology', href: '#technology' },
     { label: 'Specs', href: '#specs' },
-    { label: 'Pre-Order', href: '#preorder' },
   ]
 
   return (
@@ -118,33 +117,33 @@ const Navigation: React.FC = () => {
                   transition={{ duration: 0.2 }}
                   onMouseEnter={() => setShowProducts(true)}
                   onMouseLeave={() => setShowProducts(false)}
-                  className="absolute top-full left-0 mt-2 w-96 rounded-2xl backdrop-blur-[120px] border border-glass-border bg-glass-standard shadow-xl z-50"
+                  className="absolute top-full left-0 mt-0 w-full max-w-3xl rounded-2xl backdrop-blur-[200px] border border-glass-border shadow-xl z-50"
                   style={{
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(120px)',
+                    background: 'rgba(0, 0, 0, 0.85)',
+                    backdropFilter: 'blur(200px)',
                   }}
                 >
-                  <div className="grid grid-cols-2 gap-4 p-4">
+                  <div className="grid grid-cols-1 gap-3 p-6">
                     {products.map((product) => (
                       <motion.a
                         key={product.title}
                         href={product.href}
-                        whileHover={{ scale: 1.05, y: -5 }}
-                        className="group rounded-xl overflow-hidden bg-glass-subtle border border-glass-border hover:border-accent-blue transition-all duration-200"
+                        whileHover={{ x: 10 }}
+                        className="group rounded-xl overflow-hidden bg-glass-subtle hover:bg-glass-emphasized transition-all duration-200 flex items-center space-x-4 p-4"
                       >
-                        <div className="relative h-32 overflow-hidden bg-gradient-to-b from-white/10 to-transparent">
+                        <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg">
                           <img
                             src={getImagePath(product.image.replace('/liteflix/images/', ''))}
                             alt={product.title}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                         </div>
-                        <div className="p-3">
-                          <h4 className="text-text-primary font-semibold text-sm mb-1">
+                        <div className="flex-1">
+                          <h4 className="text-text-primary font-semibold text-base mb-1">
                             {product.title}
                           </h4>
-                          <p className="text-text-tertiary text-xs leading-relaxed">
+                          <p className="text-text-tertiary text-sm leading-relaxed">
                             {product.description}
                           </p>
                         </div>
@@ -155,18 +154,6 @@ const Navigation: React.FC = () => {
               )}
             </AnimatePresence>
           </div>
-          
-          {/* CTA Button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 bg-accent-primary text-white font-semibold rounded-xl shadow-button-primary transform perspective-800 translate-z-3 transition-all duration-200"
-            style={{
-              boxShadow: '0 12px 32px rgba(139, 124, 246, 0.5)',
-            }}
-          >
-            Pre-Order Now
-          </motion.button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -239,9 +226,6 @@ const Navigation: React.FC = () => {
               </AnimatePresence>
             </div>
 
-            <button className="w-full px-6 py-4 bg-accent-primary text-white font-semibold rounded-xl mt-4">
-              Pre-Order Now
-            </button>
           </div>
         </motion.div>
       )}
