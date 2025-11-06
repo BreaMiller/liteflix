@@ -223,18 +223,6 @@ const StorageSection: React.FC = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Interactive Controls */}
-            <div className="mt-8 flex justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setActiveLayer(null)}
-                className="px-6 py-3 bg-glass-emphasized text-text-primary rounded-xl border border-glass-border backdrop-blur-[120px]"
-              >
-                Full Breakdown
-              </motion.button>
-            </div>
           </motion.div>
         </div>
       </div>
