@@ -107,15 +107,15 @@ const Navigation: React.FC = () => {
                     backdropFilter: 'blur(200px)',
                   }}
                 >
-                  <div className="grid grid-cols-1 gap-3 p-6">
+                  <div className="grid grid-cols-4 gap-4 p-6">
                     {products.map((product) => (
                       <motion.a
                         key={product.title}
                         href={product.href}
-                        whileHover={{ x: 10 }}
-                        className="group rounded-xl overflow-hidden bg-glass-subtle hover:bg-glass-emphasized transition-all duration-200 flex items-center space-x-4 p-4"
+                        whileHover={{ y: -5 }}
+                        className="group rounded-xl overflow-hidden bg-glass-subtle hover:bg-glass-emphasized transition-all duration-200 flex flex-col items-center text-center p-4"
                       >
-                        <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg">
+                        <div className="relative w-20 h-20 flex-shrink-0 overflow-hidden rounded-lg mb-3">
                           <img
                             src={getImagePath(product.image)}
                             alt={product.title}
@@ -124,10 +124,10 @@ const Navigation: React.FC = () => {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                         </div>
                         <div className="flex-1">
-                          <h4 className="text-text-primary font-semibold text-base mb-1">
+                          <h4 className="text-text-primary font-semibold text-sm mb-1">
                             {product.title}
                           </h4>
-                          <p className="text-text-tertiary text-sm leading-relaxed">
+                          <p className="text-text-tertiary text-xs leading-relaxed">
                             {product.description}
                           </p>
                         </div>
