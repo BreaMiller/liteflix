@@ -249,18 +249,40 @@ const Navigation: React.FC = () => {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.08, duration: 0.3, ease: 'easeOut' }}
-                        className="block p-3 rounded-xl bg-glass-subtle border border-glass-border hover:border-accent-blue transition-all"
+                        className="flex flex-row items-center gap-3 p-3 rounded-xl bg-glass-subtle border border-glass-border hover:border-accent-blue transition-all"
                         onClick={() => {
                           setIsOpen(false)
                           setShowProducts(false)
                         }}
                       >
-                        <h4 className="text-text-primary font-semibold text-sm">
-                          {product.title}
-                        </h4>
-                        <p className="text-text-tertiary text-xs mt-1">
-                          {product.description}
-                        </p>
+                        <div className="relative w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center">
+                          {product.title === '5D Storage' ? (
+                            <motion.div
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                              className="w-10 h-10"
+                            >
+                              <CrystalDiscIcon className="w-full h-full" />
+                            </motion.div>
+                          ) : (
+                            <>
+                              <img
+                                src={getImagePath(product.image)}
+                                alt={product.title}
+                                className="w-full h-full object-contain"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                            </>
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-text-primary font-semibold text-sm">
+                            {product.title}
+                          </h4>
+                          <p className="text-text-tertiary text-xs mt-1">
+                            {product.description}
+                          </p>
+                        </div>
                       </motion.a>
                     ))}
                   </motion.div>
