@@ -19,13 +19,13 @@ const Navigation: React.FC = () => {
     {
       title: 'Camera Bodies',
       href: '#camera-bodies',
-      image: 'brea-camera-body.png',
+      image: 'transparent-camera-body.png',
       description: 'Revolutionary transparent camera with 5D storage'
     },
     {
       title: 'Lenses',
       href: '#lenses',
-      image: 'brea-lens.png',
+      image: 'transparent-lens.png',
       description: 'Precision optical elements for crystal clarity'
     },
     {
@@ -37,7 +37,7 @@ const Navigation: React.FC = () => {
     {
       title: 'Flashes',
       href: '#flashes',
-      image: 'brea-flash.png',
+      image: 'transparent-flash.png',
       description: 'Advanced illumination systems'
     }
   ]
@@ -109,15 +109,15 @@ const Navigation: React.FC = () => {
                     right: 0,
                   }}
                 >
-                  <div className="grid grid-cols-2 gap-4 p-4 md:p-6">
+                  <div className="flex flex-col gap-3 p-4 md:p-6">
                     {products.map((product) => (
                       <motion.a
                         key={product.title}
                         href={product.href}
-                        whileHover={{ y: -5 }}
-                        className="group rounded-xl overflow-hidden bg-glass-subtle hover:bg-glass-emphasized transition-all duration-200 flex flex-col items-center text-center p-4"
+                        whileHover={{ x: 5 }}
+                        className="group rounded-xl overflow-hidden transition-all duration-200 flex flex-row items-center gap-4 p-3 hover:bg-white/5"
                       >
-                        <div className="relative w-24 h-24 md:w-20 md:h-20 flex-shrink-0 overflow-hidden rounded-lg mb-3 bg-gradient-to-br from-white/20 to-white/5">
+                        <div className="relative w-16 h-16 md:w-14 md:h-14 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5">
                           <img
                             src={getImagePath(product.image)}
                             alt={product.title}
@@ -125,8 +125,8 @@ const Navigation: React.FC = () => {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                         </div>
-                        <div className="flex-1">
-                          <h4 className="text-text-primary font-semibold text-xs md:text-sm mb-1">
+                        <div className="flex-1 text-left">
+                          <h4 className="text-text-primary font-semibold text-sm mb-1">
                             {product.title}
                           </h4>
                           <p className="text-text-tertiary text-xs leading-relaxed hidden md:block">
