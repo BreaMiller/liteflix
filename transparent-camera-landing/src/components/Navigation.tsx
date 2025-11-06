@@ -100,7 +100,7 @@ const Navigation: React.FC = () => {
                   transition={{ duration: 0.2 }}
                   onMouseEnter={() => setShowProducts(true)}
                   onMouseLeave={() => setShowProducts(false)}
-                  className="absolute right-0 w-80 rounded-2xl shadow-2xl z-40"
+                  className="absolute right-0 w-96 rounded-2xl shadow-2xl z-40"
                   style={{
                     background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0) 100%)',
                     backdropFilter: 'blur(60px)',
