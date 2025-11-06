@@ -100,14 +100,16 @@ const Navigation: React.FC = () => {
                   transition={{ duration: 0.2 }}
                   onMouseEnter={() => setShowProducts(true)}
                   onMouseLeave={() => setShowProducts(false)}
-                  className="fixed left-4 right-4 md:left-auto md:right-auto md:w-screen max-h-96 overflow-y-auto rounded-2xl shadow-xl z-40"
+                  className="fixed inset-x-0 mx-auto max-w-7xl max-h-96 overflow-y-auto rounded-2xl shadow-xl z-40"
                   style={{
                     background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0) 100%)',
                     backdropFilter: 'blur(60px)',
                     top: 'calc(100% + 16px)',
+                    left: 0,
+                    right: 0,
                   }}
                 >
-                  <div className="grid grid-cols-2 gap-3 md:gap-4 p-4 md:p-6">
+                  <div className="grid grid-cols-2 gap-4 p-4 md:p-6">
                     {products.map((product) => (
                       <motion.a
                         key={product.title}
@@ -115,7 +117,7 @@ const Navigation: React.FC = () => {
                         whileHover={{ y: -5 }}
                         className="group rounded-xl overflow-hidden bg-glass-subtle hover:bg-glass-emphasized transition-all duration-200 flex flex-col items-center text-center p-4"
                       >
-                        <div className="relative w-20 h-20 flex-shrink-0 overflow-hidden rounded-lg mb-3">
+                        <div className="relative w-24 h-24 md:w-20 md:h-20 flex-shrink-0 overflow-hidden rounded-lg mb-3">
                           <img
                             src={getImagePath(product.image)}
                             alt={product.title}
@@ -124,10 +126,10 @@ const Navigation: React.FC = () => {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                         </div>
                         <div className="flex-1">
-                          <h4 className="text-text-primary font-semibold text-sm mb-1">
+                          <h4 className="text-text-primary font-semibold text-xs md:text-sm mb-1">
                             {product.title}
                           </h4>
-                          <p className="text-text-tertiary text-xs leading-relaxed">
+                          <p className="text-text-tertiary text-xs leading-relaxed hidden md:block">
                             {product.description}
                           </p>
                         </div>
