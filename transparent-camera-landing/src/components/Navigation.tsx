@@ -19,25 +19,25 @@ const Navigation: React.FC = () => {
     {
       title: 'Camera Bodies',
       href: '#camera-bodies',
-      image: '/liteflix/images/transparent-camera-body.png',
+      image: 'transparent-camera-body.png',
       description: 'Revolutionary transparent camera with 5D storage'
     },
     {
       title: 'Lenses',
       href: '#lenses',
-      image: '/liteflix/images/transparent-lens.png',
+      image: 'transparent-lens.png',
       description: 'Precision optical elements for crystal clarity'
     },
     {
       title: '5D Storage',
       href: '#5d-storage',
-      image: '/liteflix/images/transparent-camera-internal-components.png',
+      image: 'transparent-camera-internal-components.png',
       description: 'Quantum-encoded crystal media storage'
     },
     {
       title: 'Flashes',
       href: '#flashes',
-      image: '/liteflix/images/ALON_microstructure_SEM_fracture_grains.jpg',
+      image: 'ALON_microstructure_SEM_fracture_grains.jpg',
       description: 'Advanced illumination systems'
     }
   ]
@@ -52,15 +52,15 @@ const Navigation: React.FC = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="fixed top-0 left-0 right-0 z-50 h-24"
+      className="fixed top-4 left-4 right-4 z-50 mx-auto rounded-2xl"
       style={{
         background: 'rgba(255, 255, 255, 0.15)',
         backdropFilter: 'blur(60px)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.15)',
-        boxShadow: '0 2px 24px rgba(0, 0, 0, 0.3)',
+        border: '1px solid rgba(255, 255, 255, 0.25)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between py-4">
+      <div className="max-w-7xl mx-auto px-8 py-5 h-full flex items-center justify-between">
         {/* Logo */}
         <motion.div
           className="flex items-center space-x-2"
@@ -101,7 +101,7 @@ const Navigation: React.FC = () => {
                   transition={{ duration: 0.2 }}
                   onMouseEnter={() => setShowProducts(true)}
                   onMouseLeave={() => setShowProducts(false)}
-                  className="absolute top-full left-0 mt-0 w-full max-w-3xl rounded-2xl backdrop-blur-[200px] border border-glass-border shadow-xl z-50"
+                  className="absolute top-full left-0 mt-3 w-full max-w-4xl rounded-2xl backdrop-blur-[200px] border border-glass-border shadow-xl z-40"
                   style={{
                     background: 'rgba(0, 0, 0, 0.85)',
                     backdropFilter: 'blur(200px)',
@@ -117,7 +117,7 @@ const Navigation: React.FC = () => {
                       >
                         <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg">
                           <img
-                            src={getImagePath(product.image.replace('/liteflix/images/', ''))}
+                            src={getImagePath(product.image)}
                             alt={product.title}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                           />
