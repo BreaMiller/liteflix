@@ -116,7 +116,9 @@ const Navigation: React.FC = () => {
                         whileHover={{ scale: 1.05, x: 8 }}
                         className="group rounded-xl overflow-hidden transition-all duration-300 flex flex-row items-center gap-4"
                       >
-                        <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5 group-hover:shadow-lg"
+                        <div className={`relative flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5 group-hover:shadow-lg ${
+                          product.title === 'Camera Bodies' ? 'w-32 h-32' : 'w-24 h-24'
+                        }`}
                           style={{
                             boxShadow: '0 0 30px rgba(139, 124, 246, 0.2)',
                             transition: 'box-shadow 0.3s ease',
