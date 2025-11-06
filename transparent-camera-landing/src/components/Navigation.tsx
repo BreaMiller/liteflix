@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import PrismIcon from './PrismIcon'
+import CrystalDisc from './CrystalDisc'
 import { getImagePath } from '@/lib/utils'
 
 interface Product {
@@ -116,20 +117,24 @@ const Navigation: React.FC = () => {
                         whileHover={{ scale: 1.05, x: 8 }}
                         className="group rounded-xl overflow-hidden transition-all duration-300 flex flex-row items-center gap-4"
                       >
-                        <div className={`relative flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5 group-hover:shadow-lg ${
-                          product.title === 'Camera Bodies' ? 'w-32 h-32' : 'w-24 h-24'
-                        }`}
+                        <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5 group-hover:shadow-lg"
                           style={{
                             boxShadow: '0 0 30px rgba(139, 124, 246, 0.2)',
                             transition: 'box-shadow 0.3s ease',
                           }}
                         >
-                          <img
-                            src={getImagePath(product.image)}
-                            alt={product.title}
-                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                          {product.title === '5D Storage' ? (
+                            <CrystalDisc className="w-full h-full group-hover:scale-110 transition-transform duration-300" />
+                          ) : (
+                            <>
+                              <img
+                                src={getImagePath(product.image)}
+                                alt={product.title}
+                                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                            </>
+                          )}
                         </div>
                         <div className="flex-1 text-left">
                           <h4 className="text-text-primary font-semibold text-sm mb-2 group-hover:text-white transition-colors">
