@@ -60,7 +60,7 @@ const Navigation: React.FC = () => {
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
       }}
     >
-      <div className="max-w-7xl mx-auto px-8 py-5 h-full flex items-center justify-between">
+      <div className="w-full px-4 md:px-8 py-5 flex items-center justify-between relative">
         {/* Logo */}
         <motion.div
           className="flex items-center space-x-2"
@@ -101,13 +101,14 @@ const Navigation: React.FC = () => {
                   transition={{ duration: 0.2 }}
                   onMouseEnter={() => setShowProducts(true)}
                   onMouseLeave={() => setShowProducts(false)}
-                  className="absolute top-full left-0 mt-3 w-full max-w-4xl rounded-2xl backdrop-blur-[200px] border border-glass-border shadow-xl z-40"
+                  className="fixed left-4 right-4 md:left-auto md:right-auto md:w-screen max-h-96 overflow-y-auto mt-2 rounded-2xl backdrop-blur-[200px] border border-glass-border shadow-xl z-40"
                   style={{
                     background: 'rgba(0, 0, 0, 0.85)',
                     backdropFilter: 'blur(200px)',
+                    top: 'calc(100% + 16px)',
                   }}
                 >
-                  <div className="grid grid-cols-4 gap-4 p-6">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 p-4 md:p-6">
                     {products.map((product) => (
                       <motion.a
                         key={product.title}
