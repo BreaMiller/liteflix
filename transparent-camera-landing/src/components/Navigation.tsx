@@ -19,13 +19,13 @@ const Navigation: React.FC = () => {
     {
       title: 'Camera Bodies',
       href: '#camera-bodies',
-      image: 'transparent-camera-body.png',
+      image: 'brea-camera-body.png',
       description: 'Revolutionary transparent camera with 5D storage'
     },
     {
       title: 'Lenses',
       href: '#lenses',
-      image: 'transparent-lens.png',
+      image: 'brea-lens.png',
       description: 'Precision optical elements for crystal clarity'
     },
     {
@@ -37,7 +37,7 @@ const Navigation: React.FC = () => {
     {
       title: 'Flashes',
       href: '#flashes',
-      image: 'transparent-flash.png',
+      image: 'brea-flash.png',
       description: 'Advanced illumination systems'
     }
   ]
