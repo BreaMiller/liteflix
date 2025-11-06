@@ -94,20 +94,18 @@ const Navigation: React.FC = () => {
             <AnimatePresence>
               {showProducts && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                  transition={{ duration: 0.3, type: 'spring', stiffness: 100, damping: 15 }}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
                   onMouseEnter={() => setShowProducts(true)}
                   onMouseLeave={() => setShowProducts(false)}
-                  className="fixed inset-x-0 mx-auto max-w-4xl rounded-2xl z-40"
+                  className="absolute right-0 w-80 rounded-2xl shadow-2xl z-40"
                   style={{
                     background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0) 100%)',
                     backdropFilter: 'blur(60px)',
                     top: 'calc(100% + 16px)',
-                    left: 0,
-                    right: 0,
-                    boxShadow: '0 25px 50px -12px rgba(139, 124, 246, 0.3), 0 0 40px rgba(139, 124, 246, 0.2)',
+                    boxShadow: '0 20px 60px rgba(139, 124, 246, 0.3)',
                   }}
                 >
                   <div className="grid grid-cols-2 gap-4 p-6">
@@ -115,36 +113,27 @@ const Navigation: React.FC = () => {
                       <motion.a
                         key={product.title}
                         href={product.href}
-                        whileHover={{ y: -8, scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="group rounded-xl overflow-hidden transition-all duration-300 flex flex-col items-center text-center p-4"
-                        style={{
-                          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
-                        }}
+                        whileHover={{ scale: 1.08, y: -8 }}
+                        className="group rounded-xl overflow-hidden transition-all duration-300 flex flex-col items-center text-center"
                       >
-                        <div className="relative w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg mb-4 bg-gradient-to-br from-white/30 to-white/10 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-purple-500/50">
+                        <div className="relative w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg mb-3 bg-gradient-to-br from-white/20 to-white/5 group-hover:shadow-lg"
+                          style={{
+                            boxShadow: '0 0 30px rgba(139, 124, 246, 0.2)',
+                            transition: 'box-shadow 0.3s ease',
+                          }}
+                        >
                           <img
                             src={getImagePath(product.image)}
                             alt={product.title}
-                            className="w-full h-full object-contain group-hover:scale-125 transition-transform duration-300"
+                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-                          {/* Glow effect on hover */}
-                          <motion.div
-                            initial={{ opacity: 0 }}
-                            whileHover={{ opacity: 1 }}
-                            className="absolute inset-0 rounded-lg"
-                            style={{
-                              background: 'radial-gradient(circle at center, rgba(139, 124, 246, 0.3) 0%, transparent 70%)',
-                              pointerEvents: 'none',
-                            }}
-                          />
                         </div>
                         <div className="flex-1">
                           <h4 className="text-text-primary font-semibold text-sm mb-2 group-hover:text-white transition-colors">
                             {product.title}
                           </h4>
-                          <p className="text-text-tertiary text-xs leading-relaxed group-hover:text-text-secondary transition-colors">
+                          <p className="text-text-tertiary text-xs leading-relaxed">
                             {product.description}
                           </p>
                         </div>
