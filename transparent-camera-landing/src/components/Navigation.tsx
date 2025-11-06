@@ -11,9 +11,18 @@ interface Product {
   description: string
 }
 
+const transition = {
+  type: 'spring',
+  mass: 0.5,
+  damping: 11.5,
+  stiffness: 100,
+  restDelta: 0.001,
+  restSpeed: 0.001,
+}
+
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [showProducts, setShowProducts] = useState(false)
+  const [activeMenu, setActiveMenu] = useState<string | null>(null)
 
   const products: Product[] = [
     {
@@ -74,68 +83,61 @@ const Navigation: React.FC = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {/* Products Dropdown */}
-          <div className="relative group">
+          <div 
+            className="relative"
+            onMouseEnter={() => setActiveMenu('products')}
+            onMouseLeave={() => setActiveMenu(null)}
+          >
             <motion.button
-              className="text-text-primary hover:text-white transition-colors duration-200 relative group flex items-center space-x-1"
-              onMouseEnter={() => setShowProducts(true)}
-              onMouseLeave={() => setShowProducts(false)}
+              className="text-text-primary hover:text-white transition-colors duration-200 relative flex items-center space-x-1"
             >
               <span>Products</span>
-              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${showProducts ? 'rotate-180' : ''}`} />
-              <motion.div
-                className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400"
-                initial={{ width: 0 }}
-                whileHover={{ width: '100%' }}
-                transition={{ duration: 0.2 }}
+              <ChevronDown 
+                className={`h-4 w-4 transition-transform duration-200 ${activeMenu === 'products' ? 'rotate-180' : ''}`} 
               />
             </motion.button>
 
             {/* Dropdown Menu */}
             <AnimatePresence>
-              {showProducts && (
+              {activeMenu === 'products' && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  onMouseEnter={() => setShowProducts(true)}
-                  onMouseLeave={() => setShowProducts(false)}
-                  className="fixed inset-x-0 mx-auto max-w-7xl max-h-96 overflow-y-auto rounded-2xl shadow-xl z-40"
-                  style={{
-                    background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0) 100%)',
-                    backdropFilter: 'blur(60px)',
-                    top: 'calc(100% + 16px)',
-                    left: 0,
-                    right: 0,
-                  }}
+                  initial={{ opacity: 0, scale: 0.85, y: 10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.85, y: 10 }}
+                  transition={transition}
+                  className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-0 z-50"
                 >
-                  <div className="flex flex-col gap-3 p-4 md:p-6">
-                    {products.map((product) => (
-                      <motion.a
-                        key={product.title}
-                        href={product.href}
-                        whileHover={{ x: 5 }}
-                        className="group rounded-xl overflow-hidden transition-all duration-200 flex flex-row items-center gap-4 p-3 hover:bg-white/5"
-                      >
-                        <div className="relative w-16 h-16 md:w-14 md:h-14 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5">
-                          <img
-                            src={getImagePath(product.image)}
-                            alt={product.title}
-                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-                        </div>
-                        <div className="flex-1 text-left">
-                          <h4 className="text-text-primary font-semibold text-sm mb-1">
-                            {product.title}
-                          </h4>
-                          <p className="text-text-tertiary text-xs leading-relaxed hidden md:block">
-                            {product.description}
-                          </p>
-                        </div>
-                      </motion.a>
-                    ))}
-                  </div>
+                  <motion.div
+                    layoutId="active-menu"
+                    className="bg-black/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/[0.2] shadow-xl"
+                  >
+                    <motion.div layout className="w-max h-full p-6 space-y-3">
+                      {products.map((product) => (
+                        <a
+                          key={product.title}
+                          href={product.href}
+                          className="flex space-x-4 group hover:opacity-80 transition-opacity"
+                        >
+                          <div className="relative w-32 h-16 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5">
+                            <img
+                              src={getImagePath(product.image)}
+                              alt={product.title}
+                              className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                          </div>
+                          <div>
+                            <h4 className="text-lg font-bold mb-1 text-white">
+                              {product.title}
+                            </h4>
+                            <p className="text-neutral-300 text-sm max-w-[12rem]">
+                              {product.description}
+                            </p>
+                          </div>
+                        </a>
+                      ))}
+                    </motion.div>
+                  </motion.div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -192,15 +194,15 @@ const Navigation: React.FC = () => {
             {/* Mobile Products Menu */}
             <div>
               <button
-                onClick={() => setShowProducts(!showProducts)}
+                onClick={() => setActiveMenu(activeMenu === 'products' ? null : 'products')}
                 className="w-full text-left text-text-primary hover:text-white transition-colors text-lg flex items-center justify-between"
               >
                 <span>Products</span>
-                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${showProducts ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeMenu === 'products' ? 'rotate-180' : ''}`} />
               </button>
               
               <AnimatePresence>
-                {showProducts && (
+                {activeMenu === 'products' && (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
@@ -214,7 +216,7 @@ const Navigation: React.FC = () => {
                         className="block p-3 rounded-xl bg-glass-subtle border border-glass-border hover:border-accent-blue transition-all"
                         onClick={() => {
                           setIsOpen(false)
-                          setShowProducts(false)
+                          setActiveMenu(null)
                         }}
                       >
                         <h4 className="text-text-primary font-semibold text-sm">
