@@ -125,11 +125,14 @@ const Navigation: React.FC = () => {
                   }}
                 >
                   <div className="grid grid-cols-2 gap-6 p-6">
-                    {products.map((product) => (
+                    {products.map((product, index) => (
                       <motion.a
                         key={product.title}
                         href={product.href}
                         whileHover={{ scale: 1.05, x: 8 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1, duration: 0.4, ease: 'easeOut' }}
                         className="group rounded-xl overflow-hidden transition-all duration-300 flex flex-row items-center gap-4"
                       >
                         <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-white/20 to-white/5 group-hover:shadow-lg flex items-center justify-center"
@@ -239,10 +242,13 @@ const Navigation: React.FC = () => {
                     exit={{ opacity: 0, height: 0 }}
                     className="mt-3 space-y-2"
                   >
-                    {products.map((product) => (
-                      <a
+                    {products.map((product, index) => (
+                      <motion.a
                         key={product.title}
                         href={product.href}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.08, duration: 0.3, ease: 'easeOut' }}
                         className="block p-3 rounded-xl bg-glass-subtle border border-glass-border hover:border-accent-blue transition-all"
                         onClick={() => {
                           setIsOpen(false)
@@ -255,7 +261,7 @@ const Navigation: React.FC = () => {
                         <p className="text-text-tertiary text-xs mt-1">
                           {product.description}
                         </p>
-                      </a>
+                      </motion.a>
                     ))}
                   </motion.div>
                 )}
