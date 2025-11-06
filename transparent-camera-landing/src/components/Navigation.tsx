@@ -37,7 +37,7 @@ const Navigation: React.FC = () => {
     {
       title: 'Flashes',
       href: '#flashes',
-      image: 'ALON_microstructure_SEM_fracture_grains.jpg',
+      image: 'transparent-flash.png',
       description: 'Advanced illumination systems'
     }
   ]

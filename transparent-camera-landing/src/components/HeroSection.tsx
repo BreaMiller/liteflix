@@ -114,7 +114,7 @@ const HeroSection: React.FC = () => {
                 letterSpacing: '-0.03em',
               }}
             >
-              Moments that Outlast{' '}
+              Moments That Outlast{' '}
               <span 
                 className="bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent"
               >
