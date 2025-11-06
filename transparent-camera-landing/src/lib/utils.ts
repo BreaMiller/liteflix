@@ -6,9 +6,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getImagePath(imagePath: string): string {
-  // Simply prepend liteflix to paths that start with /
+  // If it's already a full path starting with /, prepend /liteflix
   if (imagePath.startsWith('/')) {
     return `/liteflix${imagePath}`;
   }
-  return imagePath;
+  // If it's just a filename, construct the full path
+  return `/liteflix/images/${imagePath}`;
 }
