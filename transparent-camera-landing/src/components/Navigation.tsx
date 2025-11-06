@@ -59,7 +59,7 @@ const Navigation: React.FC = () => {
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
       }}
     >
-      <div className="w-full px-4 md:px-8 py-5 flex items-center justify-between relative">
+      <div className="w-full px-4 md:px-8 py-6 flex items-center justify-between relative">
         {/* Logo */}
         <motion.div
           className="flex items-center space-x-2"
@@ -117,13 +117,13 @@ const Navigation: React.FC = () => {
                         whileHover={{ y: -5 }}
                         className="group rounded-xl overflow-hidden bg-glass-subtle hover:bg-glass-emphasized transition-all duration-200 flex flex-col items-center text-center p-4"
                       >
-                        <div className="relative w-24 h-24 md:w-20 md:h-20 flex-shrink-0 overflow-hidden rounded-lg mb-3">
+                        <div className="relative w-24 h-24 md:w-20 md:h-20 flex-shrink-0 overflow-hidden rounded-lg mb-3 bg-gradient-to-br from-white/20 to-white/5">
                           <img
                             src={getImagePath(product.image)}
                             alt={product.title}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                         </div>
                         <div className="flex-1">
                           <h4 className="text-text-primary font-semibold text-xs md:text-sm mb-1">
